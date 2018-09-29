@@ -3,7 +3,7 @@
 Naivecoin is great project to understand Bitcoin.
 This is extended version of it. The differences  block structure and transaction structure whose are same as actual Bitcoin.
 
-Blog Post: [Understand Bitcoin block structure and transaction structure with NaiveCoin which is simplified Javascript Bitcoin.](https://medium.com/p/7f5d441275af/edit)
+Blog Post: [Understand Bitcoin block structure and transaction structure with NaiveCoin which is simplified Javascript Bitcoin.](https://medium.com/@t.tak/understand-bitcoin-block-structure-and-transaction-structure-with-naivecoin-which-is-simplified-7f5d441275af)
 
 The repository for the original naivecoin tutorial: https://lhartikk.github.io/
 
