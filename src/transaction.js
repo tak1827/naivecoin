@@ -45,18 +45,6 @@ class Transaction {
   }
 }
 
-const getTransactionId = (transaction) => {
-  const txInContent = transaction.txIns
-    .map((txIn) => txIn.previousTx + txIn.index + txIn + scriptSig)
-    .reduce((a, b) => a + b, '');
-
-  const txOutContent = transaction.txOuts
-    .map((txOut) => txOut.value + txOut.scriptPubKey)
-    .reduce((a, b) => a + b, '');
-
-  return CryptoJS.SHA256(txInContent + txOutContent).toString();
-};
-
 const validateTransaction = (transaction, aUnspentTxOuts) => {
   if (!isValidTransactionStructure(transaction)) return false;
 
@@ -326,7 +314,7 @@ const isValidAddress = (address) => {
 };
 
 export {
-  processTransactions, signTxIn, getTransactionId, isValidAddress, validateTransaction,
+  processTransactions, signTxIn, isValidAddress, validateTransaction,
   UnspentTxOut, TxIn, TxOut, getCoinbaseTransaction, getPublicKey, hasDuplicates,
   Transaction
 };

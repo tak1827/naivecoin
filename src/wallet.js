@@ -3,7 +3,7 @@ import CryptoJS from 'crypto-js';
 import Bs58 from 'bs58';
 import {existsSync, readFileSync, unlinkSync, writeFileSync} from 'fs';
 import _ from 'lodash';
-import {getPublicKey, getTransactionId, signTxIn, Transaction, TxIn, TxOut, UnspentTxOut} from './transaction';
+import {getPublicKey, signTxIn, Transaction, TxIn, TxOut, UnspentTxOut} from './transaction';
 
 const EC = new ec('secp256k1');
 const privateKeyLocation = process.env.PRIVATE_KEY || 'node/wallet/private_key';

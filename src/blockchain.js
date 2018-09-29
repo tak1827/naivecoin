@@ -7,7 +7,6 @@ import {
   Transaction, TxOut, UnspentTxOut 
 } from './transaction';
 import {addToTransactionPool, getTransactionPool, updateTransactionPool} from './transactionPool';
-import {hexToBinary} from './util';
 import {
   createTransaction, findUnspentTxOuts, getBalance, getPrivateFromWallet, 
   getPublicFromWallet, getPubkeyHashFromWallet
@@ -175,19 +174,6 @@ const generateNextBlock = () => {
   const transactions = [coinbaseTx].concat(getTransactionPool());
   return generateRawNextBlock(transactions);
 };
-
-// const generatenextBlockWithTransaction = (receiverAddress, amount) => {
-//   if (!isValidAddress(receiverAddress)) {
-//     throw Error('invalid address');
-//   }
-//   if (typeof amount !== 'number') {
-//     throw Error('invalid amount');
-//   }
-//   const coinbaseTx = getCoinbaseTransaction(getAddressFromWallet());
-//   const tx = createTransaction(receiverAddress, amount, getPrivateFromWallet(), getUnspentTxOuts(), getTransactionPool());
-//   const transactions = [coinbaseTx, tx];
-//   return generateRawNextBlock(transactions);
-// };
 
 const findBlockHeader = (previousHash, hashMerkleRoot, bits) => {
   // const target = Number('0x' + calculateTargetFromBits(bits));

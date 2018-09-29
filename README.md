@@ -1,7 +1,13 @@
-# Naivecoin
+# Naivecoin Extention
 
-The repository for the naivecoin tutorial: https://lhartikk.github.io/
+Naivecoin is great project to understand Bitcoin.
+This is extended version of it. The differences  block structure and transaction structure whose are same as actual Bitcoin.
 
+Blog Post: [Understand Bitcoin block structure and transaction structure with NaiveCoin which is simplified Javascript Bitcoin.](https://medium.com/p/7f5d441275af/edit)
+
+The repository for the original naivecoin tutorial: https://lhartikk.github.io/
+
+## Getting start
 ```
 npm install
 npm start
@@ -19,17 +25,12 @@ curl -X POST http://localhost:3001/mineBlock
 
 ##### Send transaction
 ```
-curl -H "Content-type: application/json" --data '{"address": "04bfcab8722991ae774db48f934ca79cfb7dd991229153b9f732ba5334aafcd8e7266e47076996b55a14bf9913ee3145ce0cfc1372ada8ada74bd287450313534b", "amount" : 35}' http://localhost:3001/sendTransaction
+curl -H "Content-type: application/json" --data '{"address": "1KYiKJEfdJtap9QX2v9takMpz2SfU4pgZw", "value" : 1000000000}' http://localhost:3001/sendTransaction
 ```
 
 ##### Query transaction pool
 ```
 curl http://localhost:3001/transactionPool
-```
-
-##### Mine transaction
-```
-curl -H "Content-type: application/json" --data '{"address": "04bfcab8722991ae774db48f934ca79cfb7dd991229153b9f732ba5334aafcd8e7266e47076996b55a14bf9913ee3145ce0cfc1372ada8ada74bd287450313534b", "amount" : 35}' http://localhost:3001/mineTransaction
 ```
 
 ##### Get balance

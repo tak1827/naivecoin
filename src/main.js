@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import _ from 'lodash';
 import {
-  Block, generateNextBlock, generatenextBlockWithTransaction, generateRawNextBlock, getAccountBalance,
+  Block, generateNextBlock, generateRawNextBlock, getAccountBalance,
   getBlockchain, getMyUnspentTransactionOutputs, getUnspentTxOuts, sendTransaction, setUnspentTxOuts
 } from './blockchain';
 import {connectToPeers, getSockets, initP2PServer} from './p2p';
@@ -54,19 +54,6 @@ const initHttpServer = (myHttpPort) => {
     res.send(getMyUnspentTransactionOutputs());
   });
 
-  // app.post('/mineRawBlock', (req, res) => {
-  //   if (req.body.data == null) {
-  //     res.send('data parameter is missing');
-  //     return;
-  //   }
-  //   const newBlock = generateRawNextBlock(req.body.data);
-  //   if (newBlock === null) {
-  //     res.status(400).send('could not generate block');
-  //   } else {
-  //     res.send(newBlock);
-  //   }
-  // });
-
   app.post('/mineBlock', (req, res) => {
     const newBlock = generateNextBlock();
     if (newBlock === null) {
@@ -85,18 +72,6 @@ const initHttpServer = (myHttpPort) => {
     const address = getPublicFromWallet();
     res.send({'address': address});
   });
-
-  // app.post('/mineTransaction', (req, res) => {
-  //   const address = req.body.address;
-  //   const amount = req.body.amount;
-  //   try {
-  //     const resp = generatenextBlockWithTransaction(address, amount);
-  //     res.send(resp);
-  //   } catch (e) {
-  //     console.log(e.message);
-  //     res.status(400).send(e.message);
-  //   }
-  // });
 
   app.post('/sendTransaction', (req, res) => {
     try {
